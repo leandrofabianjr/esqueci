@@ -6,7 +6,7 @@ import '/services/records_service.dart';
 
 void main() async {
   await Hive.initFlutter();
-  RecordsService.init();
+  await RecordsService.init();
   runApp(const EsqueciApp());
 }
 
