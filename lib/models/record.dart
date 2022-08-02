@@ -6,10 +6,10 @@ class Record extends HiveObject {
   String word;
 
   @HiveField(1)
-  DateTime createdAt;
+  DateTime? createdAt;
 
   Record({
     required this.word,
-    required this.createdAt,
+    this.createdAt,
   });
 }

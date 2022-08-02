@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 import '/models/record.dart';
+import '/pages/records_new_page.dart';
 import '/services/records_service.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,8 +17,10 @@ class HomePage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
         child: const Icon(Icons.add),
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const RecordsNewPage()),
+        ),
       ),
     );
   }
@@ -31,6 +34,17 @@ class RecordsListWidget extends StatelessWidget {
       valueListenable: RecordsService.getListanable(),
       builder: (context, box, widget) {
         final records = box.values.toList();
+        if (records.isEmpty) {
+          return SliverToBoxAdapter(
+              child: Center(
+            child: Column(
+              children: [
+                const Text('Esqueceu a palavra? 🤦'),
+                const Text('Clica no botão e salva ela aqui'),
+              ],
+            ),
+          ));
+        }
         return SliverList(
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int i) {

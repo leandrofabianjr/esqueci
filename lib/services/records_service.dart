@@ -12,4 +12,10 @@ class RecordsService {
   static getListanable() {
     return Hive.box<Record>(boxName).listenable();
   }
+
+  static create(Record newObj) {
+    newObj.createdAt = DateTime.now();
+    Box<Record> box = Hive.box<Record>(boxName);
+    box.add(newObj);
+  }
 }
