@@ -32,6 +32,7 @@ class _RecordsNewPageState extends State<RecordsNewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Nova palavra')),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
