@@ -50,7 +50,7 @@ class _RecordsNewPageState extends State<RecordsNewPage> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        word = word;
+                        word = value;
                       });
                     },
                   ),
