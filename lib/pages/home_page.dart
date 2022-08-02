@@ -8,29 +8,41 @@ class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar(title: Text('Esqueci!')),
-          ValueListenableBuilder<Box<Record>>(
-            valueListenable: RecordsService.getListanable(),
-            builder: (context, box, widget) {
-              final records = box.values.toList();
-              return SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int i) {
-                    return ListTile(
-                      title: Text(records[i].word),
-                      subtitle: Text(records[i].createdAt.toString()),
-                    );
-                  },
-                  childCount: records.length,
-                ),
-              );
-            },
-          ),
+          SliverAppBar(title: Text('Esqueci!')),
+          RecordsListWidget(),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class RecordsListWidget extends StatelessWidget {
+  const RecordsListWidget({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<Box<Record>>(
+      valueListenable: RecordsService.getListanable(),
+      builder: (context, box, widget) {
+        final records = box.values.toList();
+        return SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int i) {
+              return ListTile(
+                title: Text(records[i].word),
+                subtitle: Text(records[i].createdAt.toString()),
+              );
+            },
+            childCount: records.length,
+          ),
+        );
+      },
     );
   }
 }
