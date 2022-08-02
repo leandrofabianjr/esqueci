@@ -8,7 +8,6 @@ class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final records = RecordsService.getListanable();
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -16,6 +15,7 @@ class HomePage extends StatelessWidget {
           ValueListenableBuilder<Box<Record>>(
             valueListenable: RecordsService.getListanable(),
             builder: (context, box, widget) {
+              final records = box.values.toList();
               return SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int i) {
