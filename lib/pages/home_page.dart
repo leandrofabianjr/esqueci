@@ -19,7 +19,10 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const RecordsNewPage()),
+          MaterialPageRoute(
+            builder: (context) => const RecordsNewPage(),
+            fullscreenDialog: true,
+          ),
         ),
       ),
     );

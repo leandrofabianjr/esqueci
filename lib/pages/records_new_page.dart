@@ -54,8 +54,9 @@ class _RecordsNewPageState extends State<RecordsNewPage> {
                       });
                     },
                   ),
-                  OutlineButton(
-                    child: const Text("Salvar"),
+                  ElevatedButton.icon(
+                    label: const Text("Salvar"),
+                    icon: const Icon(Icons.save),
                     onPressed: onFormSubmit,
                   ),
                 ],
