@@ -6,7 +6,7 @@ class RecordsService {
   static String boxName = 'records';
 
   static init() async {
-    await Hive.openBox(boxName);
+    await Hive.openBox<Record>(boxName);
   }
 
   static getListanable() {
