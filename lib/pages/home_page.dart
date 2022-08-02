@@ -36,14 +36,16 @@ class RecordsListWidget extends StatelessWidget {
         final records = box.values.toList();
         if (records.isEmpty) {
           return SliverToBoxAdapter(
-              child: Center(
-            child: Column(
-              children: [
-                const Text('Esqueceu a palavra? 🤦'),
-                const Text('Clica no botão e salva ela aqui'),
-              ],
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  const Text('Esqueceu a palavra? 🤦'),
+                  const Text('Clica no botão e salva ela aqui'),
+                ],
+              ),
             ),
-          ));
+          );
         }
         return SliverList(
           delegate: SliverChildBuilderDelegate(
