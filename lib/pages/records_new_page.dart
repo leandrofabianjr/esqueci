@@ -54,7 +54,7 @@ class _RecordsNewPageState extends State<RecordsNewPage> {
                       });
                     },
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   ElevatedButton.icon(
                     label: const Text("Salvar"),
                     icon: const Icon(Icons.save),
