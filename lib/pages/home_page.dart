@@ -35,7 +35,7 @@ class RecordsListWidget extends StatelessWidget {
       builder: (context, box, widget) {
         final records = box.values.toList();
         if (records.isEmpty) {
-          return SliverToBoxAdapter(
+          return SliverFillRemaining(
             child: Center(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
