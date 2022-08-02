@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import '/pages/home_page.dart';
+import '/services/records_service.dart';
 
-void main() => runApp(const EsqueciApp());
+void main() async {
+  await Hive.initFlutter();
+  RecordsService.init();
+  runApp(const EsqueciApp());
+}
 
 class EsqueciApp extends StatelessWidget {
   const EsqueciApp({Key? key}) : super(key: key);
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

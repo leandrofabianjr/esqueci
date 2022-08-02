@@ -1,10 +1,15 @@
+import 'package:hive_flutter/hive_flutter.dart';
+
 import '/models/record.dart';
 
 class RecordsService {
-  getAll() {
-    return [
-      Record(word: 'Teste', createdAt: DateTime.now()),
-      Record(word: 'Muleta', createdAt: DateTime.now()),
-    ];
+  static String boxName = 'records';
+
+  static init() async {
+    await Hive.openBox(boxName);
+  }
+
+  static getListanable() {
+    return Hive.box<Record>(boxName).listenable();
   }
 }
